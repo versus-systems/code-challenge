@@ -4,7 +4,7 @@ Hello! Thank you for taking the time to complete the Versus Systems coding chall
 
 ## General Stuff
 
-**Time:** Please don't spend more than an hour or so on this. If you find yourself starting to take longer than that, feel free to stop coding and jot down your next steps in note form -- they can serve as a discussion point during the in-person phase of your interview.
+**Time:** Please don't spend more than an hour or so on this. If you find yourself starting to take longer than that, feel free to stop coding and jot down your next steps in note form &mdash; they can serve as a discussion point during the in-person phase of your interview.
 
 **Language:** We're an Elixir shop, but feel free to use any server-side language you feel comfortable with (Ruby, Java, Python, Node, etc). We care more about seeing clean, well-structured code than we do about seeing any particular language.
 
