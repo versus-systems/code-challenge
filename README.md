@@ -21,7 +21,7 @@ To handle this, you must write a `scrub` to remove all personal information from
 * replace all "name", "username", and "password" values with the string "********"
 * for all "email" fields, replace only the username (the part before the @)
 
-Assume that personal data can be nested at any depth, in either object or array form. The final result should do this:
+Assume that personal data can be nested inside objects or arrays at any depth. The final result should do this:
 
 <table>
   <tr>
