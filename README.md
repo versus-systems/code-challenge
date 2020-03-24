@@ -18,7 +18,7 @@ All data that flows in or out of our API gets saved to a log. This is helpful wh
 ## Your Task
 
 To handle this, you must write a `scrub` to remove all personal information from a piece of data before it is logged. This function will take in an object and perform the following transformations:
-* replace all "name", "username", and "password" values with the string "********"
+* replace all "name", "username", and "password" values with the string "******"
 * for all "email" fields, replace only the username (the part before the @)
 
 Assume that personal data can be nested inside objects or arrays at any depth. The final result should do this:
