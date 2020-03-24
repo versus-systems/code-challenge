@@ -15,7 +15,7 @@ Hello! Thank you for taking the time to complete the Versus Systems coding chall
 
 All data that flows in or out of our API gets saved to a log. This is helpful when debugging, but unfortunately means that all of our users' personal information gets stored in plain text. In order to respect our users' privacy, we need to clean this up.
 
-## The Solution
+## Your Task
 
 To handle this, you must write a `scrub` to remove all personal information from a piece of data before it is logged. This function will take in an object and perform the following transformations:
 * replace all "name", "username", and "password" values with the string "********"
