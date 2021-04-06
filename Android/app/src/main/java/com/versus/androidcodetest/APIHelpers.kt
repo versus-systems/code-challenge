@@ -10,11 +10,12 @@ object Helper {
         val image: String,
         val amiiboSeries: String,
         val gameSeries: String?,
-        val type: AmiiboType
+        val type: AmiiboType,
+        val name: String
     )
 
     enum class AmiiboType {
-        CARD, YARN, FIGURE
+        CARD, YARN, FIGURE, NONE
     }
 }
 
