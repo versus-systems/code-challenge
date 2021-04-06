@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_height="350dp"
+    tools:layout_width="300dp">
+
+    <ImageView
+        android:id="@+id/preview_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/label_wrapper"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.77"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/winnie_icon" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/label_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/design_default_color_primary"
+        app:layout_constraintHeight_percent="0.23"
+        app:layout_constraintTop_toBottomOf="@id/preview_image">
+
+        <TextView
+            android:id="@+id/label_title"
+            style="@style/TextAppearance.AppCompat.SearchResult.Title"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/design_default_color_on_primary"
+            app:layout_constraintEnd_toStartOf="@id/label_square_background"
+            app:layout_constraintHeight_percent="0.30"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/label_square_background"
+            app:layout_constraintWidth_percent="0.60"
+            tools:text="Ganon" />
+
+        <TextView
+            android:id="@+id/label_subtitle"
+            style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/design_default_color_on_primary"
+            app:layout_constraintEnd_toEndOf="@id/label_title"
+            app:layout_constraintHeight_percent="0.30"
+            app:layout_constraintStart_toStartOf="@id/label_title"
+            app:layout_constraintTop_toBottomOf="@id/label_title"
+            tools:text="The Legend of Zelda" />
+
+        <View
+            android:id="@+id/label_square_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/square_with_corner_radius"
+            android:textColor="@color/design_default_color_on_primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/label_title"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/label_item_count"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/design_default_color_on_primary"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/label_square_background"
+            app:layout_constraintEnd_toEndOf="@id/label_square_background"
+            app:layout_constraintStart_toStartOf="@id/label_square_background"
+            app:layout_constraintTop_toTopOf="@id/label_square_background"
+            tools:text="24" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
