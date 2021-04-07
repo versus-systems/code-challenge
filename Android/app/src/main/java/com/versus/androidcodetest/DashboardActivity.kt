@@ -29,6 +29,5 @@ class DashboardActivity : AppCompatActivity() {
                 false
             )
         }
-        recyclerViewAdapter.notifyDataSetChanged()
     }
 }

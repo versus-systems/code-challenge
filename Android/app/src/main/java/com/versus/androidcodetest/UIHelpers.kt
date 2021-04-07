@@ -3,7 +3,10 @@ package com.versus.androidcodetest
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.versus.androidcodetest.databinding.DashboardItemBinding
+import com.versus.androidcodetest.databinding.DetailViewHeaderBinding
+import com.versus.androidcodetest.databinding.DetailViewItemBinding
 
 class DashboardViewAdapter : RecyclerView.Adapter<DashboardViewAdapter.Companion.Holder>() {
     private val data: List<Helper.AmiiboSummary> = testData
@@ -19,7 +22,6 @@ class DashboardViewAdapter : RecyclerView.Adapter<DashboardViewAdapter.Companion
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val itemWidth = parent.measuredWidth / 2.10
         val itemHeight = parent.height / 3.25
-
 
         DashboardItemBinding
             .inflate(
@@ -99,21 +101,32 @@ class DashboardViewAdapter : RecyclerView.Adapter<DashboardViewAdapter.Companion
                     labelSubtitle.text = data.gameSeries
                     labelTitle.text = data.character
                 }
+
+                // TODO: Make Glide Work
+                Glide
+                    .with(view.root.context)
+                    .load(data.image)
+                    .placeholder(R.drawable.winnie_icon)
+                    .into(view.previewImage)
             }
         }
     }
 }
 
 // RecyclerView.Adapter for Detail View
-class DetailViewAdapter : RecyclerView.Adapter<DetailViewAdapter.Companion.Holder>() {
+class DetailViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val data: List<Helper.AmiiboSummary> = testData
 
     override fun getItemCount(): Int {
         return data.count()
     }
 
-    override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bind(data.elementAt(position))
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (holder) {
+            is DetailItemHolder -> holder.bind(data.elementAt(position))
+            is HeaderHolder -> holder.bind(data.elementAt(position))
+            else -> throw Exception("Incorrectly Configured!")
+        }
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -123,19 +136,33 @@ class DetailViewAdapter : RecyclerView.Adapter<DetailViewAdapter.Companion.Holde
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val itemWidth = parent.measuredWidth / 2.10
         val itemHeight = parent.height / 3.25
 
-        DashboardItemBinding
-            .inflate(
-                LayoutInflater.from(parent.context), parent, false
-            ).let {
-                return Holder(it.apply {
-                    root.maxWidth = itemWidth.toInt()
-                    root.maxHeight = itemHeight.toInt()
-                })
+        return when (viewType) {
+            // Header View Type
+            0 -> {
+                DetailViewHeaderBinding
+                    .inflate(
+                        LayoutInflater.from(parent.context), parent, false
+                    ).let {
+                        HeaderHolder(it)
+                    }
             }
+            // Item View Type
+            else -> {
+                DetailViewItemBinding
+                    .inflate(
+                        LayoutInflater.from(parent.context), parent, false
+                    ).let {
+                        DetailItemHolder(it.apply {
+                            root.maxWidth = itemWidth.toInt()
+                            root.maxHeight = itemHeight.toInt()
+                        })
+                    }
+            }
+        }
     }
 
     companion object {
@@ -190,12 +217,20 @@ class DetailViewAdapter : RecyclerView.Adapter<DetailViewAdapter.Companion.Holde
             )
         )
 
-        class Holder(private val view: DashboardItemBinding) : RecyclerView.ViewHolder(view.root) {
+        class HeaderHolder(private val view: DetailViewHeaderBinding) : RecyclerView.ViewHolder(view.root) {
             fun bind(data: Helper.AmiiboSummary) {
                 view.apply {
-                    labelItemCount.text = 1.toString()
-                    labelSubtitle.text = data.gameSeries
-                    labelTitle.text = data.character
+                    // TODO: Set Toolbar title
+                    headerLabelItemCount.text = 1.toString()
+                }
+            }
+        }
+
+        class DetailItemHolder(private val view: DetailViewItemBinding) : RecyclerView.ViewHolder(view.root) {
+            fun bind(data: Helper.AmiiboSummary) {
+                view.apply {
+                    // TODO: Finish binding detail items
+                    itemTitle.text = data.gameSeries
                 }
             }
         }
