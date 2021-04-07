@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.versus.androidcodetest.databinding.DetailViewBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -15,6 +18,9 @@ class DetailViewFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private var binding: DetailViewBinding? = null
+    private val recyclerViewAdapter = DetailViewAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +35,25 @@ class DetailViewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.detail_view, container, false)
+        binding = DetailViewBinding.inflate(inflater, container, false)
+        initCollection()
+        return binding?.root
+    }
+
+    private fun initCollection() {
+        binding?.detailViewRecyclerView.let {
+            it?.adapter = recyclerViewAdapter
+            it?.layoutManager = LinearLayoutManager(
+                this@DetailViewFragment.context,
+                LinearLayoutManager.VERTICAL,
+                false
+            )
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 
     companion object {

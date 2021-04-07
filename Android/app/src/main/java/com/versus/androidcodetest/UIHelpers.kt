@@ -129,7 +129,7 @@ class DashboardViewAdapter : RecyclerView.Adapter<DashboardViewAdapter.Companion
 
 // RecyclerView.Adapter for Detail View
 class DetailViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private val data: List<Helper.AmiiboSummary> = testData
+    private val data = testData
 
     override fun getItemCount(): Int {
         return data.count()
@@ -234,8 +234,12 @@ class DetailViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         class HeaderHolder(private val view: DetailViewHeaderBinding) : RecyclerView.ViewHolder(view.root) {
             fun bind(data: Helper.AmiiboSummary) {
                 view.apply {
-                    // TODO: Set Toolbar title
-                    headerLabelItemCount.text = 1.toString()
+                    Glide
+                        .with(this.root.context)
+                        .load(data.image)
+                        .placeholder(R.drawable.winnie_icon)
+                        .into(this.headerImage)
+//                    headerLabelItemCount.text = 1.toString()
                 }
             }
         }
