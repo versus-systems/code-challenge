@@ -34,7 +34,7 @@ The data to build this can be found here: [AmiiboAPI](https://www.amiiboapi.com)
     1. API consumption and transformation
     2. Core Functionality - (Hooking up the API consumption to the existing testData flow and logic.)
     3. Completing the Detail View layout
-    4. Matching and designing the designs
+    4. Styling and layout updates to match the designs
     5. Organization and improvements
     6. Filling out the 'your thoughts' section in this Readme
     7. Any stretch goals
@@ -59,5 +59,8 @@ When you finish, please send us a zip file.  We expect this should take roughly 
 * Make the app prettier
 
 ## Designs
+
+Color Palette: #4F5B62, #988D85, #D8D8D8, #000A12
+
 ![Dashboard](assets/Dashboard.png)
 ![Detail View](assets/DetailPage.png)
