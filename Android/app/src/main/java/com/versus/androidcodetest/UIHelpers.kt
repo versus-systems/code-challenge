@@ -2,6 +2,9 @@ package com.versus.androidcodetest
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.commit
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.versus.androidcodetest.databinding.DashboardItemBinding
@@ -97,17 +100,28 @@ class DashboardViewAdapter : RecyclerView.Adapter<DashboardViewAdapter.Companion
         class Holder(private val view: DashboardItemBinding) : RecyclerView.ViewHolder(view.root) {
             fun bind(data: Helper.AmiiboSummary) {
                 view.apply {
-                    labelItemCount.text = 1.toString()
+                    // TODO: Bind actual itemCount values when calculated
+                    labelItemCount.text = (1..9).random().toString()
                     labelSubtitle.text = data.gameSeries
                     labelTitle.text = data.character
+
+                    Glide
+                        .with(this.root.context)
+                        .load(data.image)
+                        .placeholder(R.drawable.winnie_icon)
+                        .into(this.previewImage)
                 }
 
-                // TODO: Make Glide Work
-                Glide
-                    .with(view.root.context)
-                    .load(data.image)
-                    .placeholder(R.drawable.winnie_icon)
-                    .into(view.previewImage)
+                view.root.setOnClickListener {
+                    val activity = it.context
+                    if (activity is AppCompatActivity) {
+                        activity.supportFragmentManager.commit {
+                            setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                            replace(R.id.dashboard_fragment_container, DetailViewFragment.newInstance("", ""))
+                            addToBackStack(null)
+                        }
+                    }
+                }
             }
         }
     }
