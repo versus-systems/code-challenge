@@ -63,5 +63,5 @@ When you finish, please send us a zip file.  We expect this should take roughly 
 * Make the app prettier
 
 ## Designs
-![Dashboard](images/Dashboard.png)
+![Dashboard](assets/Dashboard.png)
 ![Detail View](assets/DetailPage.png)
