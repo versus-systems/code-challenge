@@ -30,7 +30,7 @@ The data to build this can be found here: [AmiiboAPI](https://www.amiiboapi.com)
 
 * There's no need to include Unit Tests - a quick summary of what you'd test will suffice.
 
-* We'd prefer to see you tackle the tasks in this order in case the time to complete this code test exceeds our expected 4-6 hours:    
+* We'd prefer to see you tackle the tasks in this order in case you lack the availability or the time to complete this code test exceeds our expected 4-6 hours:    
     1. API consumption and transformation
     2. Core Functionality - (Hooking up the API consumption to the existing testData flow and logic.)
     3. Completing the Detail View layout
@@ -48,10 +48,6 @@ When you finish, please send us a zip file.  We expect this should take roughly 
 * If given a month how would you improve your contribution to this project?
   * 2 months?
   * What would you focus on first and why?
-
-
-
-
 
 
 ## Stretch Goals

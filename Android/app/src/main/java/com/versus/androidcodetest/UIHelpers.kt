@@ -234,12 +234,12 @@ class DetailViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         class HeaderHolder(private val view: DetailViewHeaderBinding) : RecyclerView.ViewHolder(view.root) {
             fun bind(data: Helper.AmiiboSummary) {
                 view.apply {
+                // TODO: Finish binding header items
                     Glide
                         .with(this.root.context)
                         .load(data.image)
                         .placeholder(R.drawable.winnie_icon)
                         .into(this.headerImage)
-//                    headerLabelItemCount.text = 1.toString()
                 }
             }
         }
