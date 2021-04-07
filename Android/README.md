@@ -45,8 +45,8 @@ When you finish, please send us a zip file.  We expect this should take roughly 
 
 ## Your thoughts
 
-* If given a month how would you improve your contribution to this project?
-  * 2 months?
+* If given a week how would you improve your contribution to this project?
+  * 2 weeks?
   * What would you focus on first and why?
 
 
